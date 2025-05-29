@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: rgb(232, 229, 229);
+      }
+
+      .container {
+        position: relative;
+        padding: 15px;
+        max-width: 640px;
+        margin: 0 auto;
+        background-color: rgb(0, 0, 0);
+      }
+
+      .container {
+        overflow-x: auto;
+      }
+
+      .gallery {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 15px;
+      }
+
+      .arrow-left,
+      .arrow-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: auto;
+        bottom: 0;
+        font-size: 20px;
+        line-height: 250px;
+        width: 40px;
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        background: linear-gradient(to left, transparent 0%, black 200%);
+        opacity: 0.1;
+        transform: all 600ms ease-in-out;
+      }
+
+      .arrow-right {
+        left: auto;
+        right: 0;
+        background: linear-gradient(to right, transparent 0%, black 200%);
+      }
+
+      .arrow-left:hover,
+      .arrow-right:hover {
+        opacity: 1;
+      }
+
+      .item {
+        width: 250px;
+        height: 250px;
+        flex-shrink: 0;
+        opacity: 0.5;
+        border: 5px solid #fff;
+        transition: all 600ms ease-in-out;
+      }
+
+      .current-item {
+        opacity: 1;
+        border: 5px solid turquoise;
+        box-shadow: 0 0 10px turquoise;
+      }
+
+      .gallery-wrapper::-webkit-scrollbar {
+        display: none;
+      }
+
+      @media screen and (max-width: 767px) {
+        .gallery {
+          display: flex;
+          flex-direction: column;
+          margin: 0 auto;
+         
+        }
+
+        div {
+          width: 70%;
+          margin: auto;
+        }
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="arrow-left control" aria-label="Previous image">
+        <img src="./icons/previous.svg" alt="" />
+      </button>
+      <button class="arrow-right control" aria-label="Next image">
+        <img src="./icons/next.svg" alt="" />
+      </button>
+      <div class="gallery-wrapper">
+        <div class="gallery">
+          <img src="./img/image_1.jpeg" class="item current-item" alt="" />
+          <img src="./img/image_2.jpeg" class="item current-item" alt="" />
+          <img src="./img/image_3.jpeg" class="item current-item" alt="" />
+          <img src="./img/image_4.jpeg" class="item current-item" alt="" />
+          <img src="./img/image_3.jpeg" class="item current-item" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
